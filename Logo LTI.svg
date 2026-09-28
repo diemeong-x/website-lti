@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <!-- Definisi Gradasi Warna -->
+    <linearGradient id="mainGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0bd3f8" />
+      <stop offset="100%" stop-color="#0b8cd8" />
+    </linearGradient>
+    <linearGradient id="foldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1458e0" />
+      <stop offset="100%" stop-color="#28a0f0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Bentuk Berlian (Atas Kiri) -->
+  <polygon points="120,60 160,20 200,60 160,100" fill="#0bc3f8" />
+
+  <!-- Huruf L -->
+  <!-- Batang Vertikal -->
+  <polygon points="170,160 240,120 240,350 170,350" fill="url(#mainGrad)" />
+  <!-- Batang Horizontal -->
+  <polygon points="240,280 340,280 340,350 240,350" fill="url(#mainGrad)" />
+  <!-- Efek Lipatan L -->
+  <polygon points="170,350 240,300 240,350" fill="url(#foldGrad)" />
+
+  <!-- Huruf T -->
+  <!-- Batang Atas -->
+  <polygon points="310,130 530,130 530,190 310,190" fill="url(#mainGrad)" />
+  <!-- Batang Bawah -->
+  <polygon points="385,190 455,190 455,340 385,380" fill="url(#mainGrad)" />
+  <!-- Efek Lipatan T -->
+  <polygon points="385,240 455,190 455,250" fill="url(#foldGrad)" />
+
+  <!-- Huruf I -->
+  <polygon points="540,140 610,100 610,320 540,360" fill="url(#mainGrad)" />
+
+  <!-- Teks Bawah -->
+  <text x="400" y="450" font-family="'Segoe UI', Arial, sans-serif" font-size="44" font-weight="bold" fill="#208cc8" text-anchor="middle">Lestari Technology Indonesia</text>
+</svg>
