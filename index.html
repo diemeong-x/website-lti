@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LTI - Lestari Technology Indonesia</title>
-    <!-- Google Fonts untuk tipografi yang modern -->
+    <title>LTI - Lestari Technology Indonesia | Solusi Audio Visual</title>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         /* === RESET & VARIABEL === */
         :root {
-            --primary-color: #0A2540; /* Biru Tua Korporat */
-            --secondary-color: #00B4D8; /* Cyan/Biru Muda LTI */
-            --accent-color: #25D366; /* Hijau WhatsApp */
-            --text-dark: #333333;
-            --text-light: #F4F7F6;
+            --primary-color: #0A2540; 
+            --secondary-color: #00B4D8; 
+            --accent-color: #25D366; 
+            --text-dark: #2C3E50;
+            --text-light: #FFFFFF;
             --bg-light: #F8F9FA;
+            --bg-dark: #121212;
         }
 
         * {
@@ -27,14 +28,14 @@
 
         body {
             color: var(--text-dark);
-            background-color: var(--text-light);
+            background-color: var(--bg-light);
             line-height: 1.6;
         }
 
         /* === NAVBAR === */
         nav {
             background-color: #ffffff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
             position: fixed;
             width: 100%;
             top: 0;
@@ -43,6 +44,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 5%;
+            transition: all 0.3s ease;
         }
 
         .logo {
@@ -62,7 +64,7 @@
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 25px;
+            gap: 30px;
         }
 
         .nav-links li a {
@@ -70,63 +72,80 @@
             color: var(--text-dark);
             font-weight: 600;
             transition: color 0.3s ease;
+            position: relative;
         }
 
-        .nav-links li a:hover {
-            color: var(--secondary-color);
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: width 0.3s;
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%;
         }
 
         /* === HERO SECTION === */
         .hero {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #104065 100%);
+            background: linear-gradient(135deg, #0A2540 0%, #17548A 100%);
             color: white;
-            padding: 160px 5% 100px;
+            padding: 180px 5% 120px;
             text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 20px;
             line-height: 1.2;
+            font-weight: 700;
         }
 
         .hero p {
             font-size: 1.2rem;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            color: #d0e3ff;
+            color: #E0E7FF;
         }
 
         .btn-primary {
             display: inline-block;
             background-color: var(--secondary-color);
             color: white;
-            padding: 15px 30px;
-            border-radius: 5px;
+            padding: 15px 35px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 700;
             font-size: 1.1rem;
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 180, 216, 0.4);
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .btn-primary:hover {
             background-color: #0096b4;
             transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 180, 216, 0.6);
         }
 
-        /* === GLOBAL SECTION STYLES === */
+        /* === GLOBAL SECTION === */
         section {
             padding: 80px 5%;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             color: var(--primary-color);
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             position: relative;
+            font-weight: 700;
         }
 
         .section-title::after {
@@ -135,62 +154,66 @@
             height: 4px;
             background-color: var(--secondary-color);
             display: block;
-            margin: 10px auto 0;
+            margin: 15px auto 0;
             border-radius: 2px;
         }
 
-        /* === LAYANAN (SERVICES) === */
+        /* === LAYANAN === */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .service-card {
             background: white;
             padding: 40px 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-bottom: 4px solid transparent;
+            transition: transform 0.3s ease, border-bottom 0.3s ease;
+            border-bottom: 5px solid transparent;
         }
 
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border-bottom: 4px solid var(--secondary-color);
+            border-bottom: 5px solid var(--secondary-color);
         }
 
         .service-icon {
-            font-size: 40px;
+            font-size: 50px;
             margin-bottom: 20px;
-        }
-
-        .service-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
         }
 
         /* === PORTFOLIO === */
         .portfolio-section {
-            background-color: var(--bg-light);
+            background-color: white;
+        }
+
+        .gallery-category {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin: 50px 0 20px;
+            border-left: 5px solid var(--secondary-color);
+            padding-left: 15px;
         }
 
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
         }
 
         .portfolio-item {
             position: relative;
             overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            background-color: #ddd; /* Placeholder color */
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             aspect-ratio: 4/3;
+            cursor: pointer;
+            background-color: #eee;
         }
 
         .portfolio-item img {
@@ -201,7 +224,7 @@
         }
 
         .portfolio-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.08);
         }
 
         .portfolio-overlay {
@@ -209,39 +232,89 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            padding: 20px;
+            background: linear-gradient(transparent, rgba(10, 37, 64, 0.9));
+            padding: 25px 20px 20px;
             color: white;
             transform: translateY(100%);
             transition: transform 0.3s ease;
+            text-align: center;
         }
 
         .portfolio-item:hover .portfolio-overlay {
             transform: translateY(0);
         }
 
-        /* === HUBUNGI KAMI === */
+        /* === LIGHTBOX MODAL === */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            padding-top: 50px; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0,0,0,0.9);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+            object-fit: contain;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .close-modal:hover {
+            color: var(--secondary-color);
+        }
+
+        /* === KONTAK === */
+        .contact-section {
+            background-color: var(--bg-light);
+        }
+        
         .contact-container {
             display: flex;
             flex-wrap: wrap;
             background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border-radius: 15px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.08);
             overflow: hidden;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
         .contact-info {
             flex: 1;
-            min-width: 300px;
-            background-color: var(--primary-color);
+            min-width: 320px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #104065 100%);
             color: white;
-            padding: 50px;
+            padding: 60px 50px;
         }
 
         .contact-info h3 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 20px;
             color: var(--secondary-color);
         }
@@ -252,7 +325,7 @@
         }
 
         .contact-list li {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             font-size: 1.1rem;
             display: flex;
             align-items: center;
@@ -270,14 +343,19 @@
         }
 
         .btn-whatsapp {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             background-color: var(--accent-color);
             color: white;
-            padding: 12px 25px;
-            border-radius: 5px;
+            padding: 15px 30px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 20px;
+            font-size: 1.1rem;
+            margin-top: 30px;
+            width: 100%;
             transition: background-color 0.3s ease;
         }
 
@@ -285,10 +363,33 @@
             background-color: #1ebe57;
         }
 
-        .contact-form {
-            flex: 1;
-            min-width: 300px;
-            padding: 50px;
+        .contact-features {
+            flex: 1.5;
+            min-width: 320px;
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .feature-item {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .feature-item span {
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
         }
 
         /* === FOOTER === */
@@ -302,15 +403,10 @@
 
         /* === RESPONSIVE === */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none; /* Hide menu on mobile for simplicity in single file */
-            }
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            .contact-container {
-                flex-direction: column;
-            }
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero { padding: 120px 5% 80px; }
+            .contact-container { flex-direction: column; }
         }
     </style>
 </head>
@@ -318,12 +414,12 @@
 
     <!-- NAVIGASI -->
     <nav>
-        <a href="#" class="logo">LTI <span>Lestari Technology</span></a>
+        <a href="#" class="logo">LTI <span>Technology</span></a>
         <ul class="nav-links">
             <li><a href="#beranda">Beranda</a></li>
             <li><a href="#layanan">Layanan</a></li>
-            <li><a href="#portofolio">Portofolio</a></li>
-            <li><a href="#kontak">Kontak</a></li>
+            <li><a href="#portofolio">Portofolio Proyek</a></li>
+            <li><a href="#kontak">Hubungi Kami</a></li>
         </ul>
     </nav>
 
@@ -331,109 +427,176 @@
     <header class="hero" id="beranda">
         <h1>Solusi Tata Visual & Audio Profesional</h1>
         <p>Lestari Technology Indonesia (LTI) adalah mitra terpercaya Anda untuk integrasi Layar Videotron (LED Screen), Sistem Audio Visual Auditorium, dan Pembangunan Ruang Konferensi Modern berskala besar.</p>
-        <a href="#kontak" class="btn-primary">Mulai Proyek Anda</a>
+        <a href="#kontak" class="btn-primary">Konsultasi Proyek Anda</a>
     </header>
 
-    <!-- LAYANAN KAMI -->
+    <!-- LAYANAN -->
     <section id="layanan">
         <h2 class="section-title">Spesialisasi Kami</h2>
         <div class="services-grid">
             <div class="service-card">
                 <div class="service-icon">🖥️</div>
-                <h3>LED Screen & Videotron</h3>
-                <p>Instalasi layar LED Indoor, Outdoor, maupun Curved (Lengkung) dengan kerapatan pixel tinggi untuk kejernihan visual maksimal di berbagai kondisi cahaya.</p>
+                <h3>Videotron & LED Screen</h3>
+                <p>Instalasi layar LED Indoor, Outdoor, maupun panel lengkung (Curved) dengan tingkat presisi dan kecerahan (brightness) maksimal.</p>
             </div>
             <div class="service-card">
                 <div class="service-icon">🔊</div>
                 <h3>Sistem Audio Visual Terpadu</h3>
-                <p>Perancangan dan pemasangan sistem suara dan visual untuk Auditorium, Aula Besar, dan Ruang Rapat Eksekutif untuk pengalaman presentasi yang imersif.</p>
+                <p>Perancangan sistem tata suara untuk ruang rapat eksekutif, aula besar, hingga auditorium berskala nasional.</p>
             </div>
             <div class="service-card">
                 <div class="service-icon">🏗️</div>
-                <h3>Konstruksi & Manajemen Kabel</h3>
-                <p>Pembuatan rangka baja khusus (scaffolding/bracket), pengaturan kelistrikan, hingga manajemen kabel panel belakang yang aman, rapi, dan berstandar tinggi.</p>
+                <h3>Konstruksi & Kelistrikan</h3>
+                <p>Mencakup pengerjaan kerangka baja, scaffolding, manajemen panel kabel belakang, hingga integrasi sistem kelistrikan yang aman.</p>
             </div>
         </div>
     </section>
 
-    <!-- PORTOFOLIO / GALERI -->
+    <!-- PORTOFOLIO (Semua 18 Gambar Dimasukkan & Dikategorikan) -->
     <section id="portofolio" class="portfolio-section">
-        <h2 class="section-title">Dokumentasi Proyek</h2>
+        <h2 class="section-title">Galeri Proyek & Pengerjaan</h2>
+        
+        <!-- Kategori 1: Ruang Konferensi & Auditorium -->
+        <h3 class="gallery-category">Hasil Instalasi Ruang Rapat & Auditorium</h3>
         <div class="portfolio-grid">
-            <!-- Ganti src="nama-foto.jpg" dengan letak/nama file foto Anda yang sesungguhnya -->
-            <div class="portfolio-item">
-                <img src="foto-ruang-rapat.jpeg" alt="Instalasi LED Ruang Konferensi">
-                <div class="portfolio-overlay">
-                    <h4>LED Ruang Konferensi</h4>
-                    <p>Integrasi layar presisi tinggi untuk ruang rapat modern.</p>
-                </div>
+            <div class="portfolio-item" onclick="openModal('Image 2026-09-21 at 16.03.39.jpeg')">
+                <img src="Image 2026-09-21 at 16.03.39.jpeg" alt="LTI Conference Room Display">
+                <div class="portfolio-overlay"><h4>Ruang Rapat Presisi (LTI)</h4></div>
             </div>
-            <div class="portfolio-item">
-                <img src="foto-auditorium.jpeg" alt="Proyek Auditorium LTI">
-                <div class="portfolio-overlay">
-                    <h4>Sistem AV Auditorium</h4>
-                    <p>Pemasangan layar raksasa dan tata suara ruangan besar.</p>
-                </div>
+            <div class="portfolio-item" onclick="openModal('Image 2026-09-21 at 16.03.38.jpeg')">
+                <img src="Image 2026-09-21 at 16.03.38.jpeg" alt="LTI Display Test">
+                <div class="portfolio-overlay"><h4>Integrasi Layar & Monitor</h4></div>
             </div>
-            <div class="portfolio-item">
-                <img src="foto-led-lengkung.jpeg" alt="Uji Coba LED Lengkung">
-                <div class="portfolio-overlay">
-                    <h4>LED Curved Display</h4>
-                    <p>Konfigurasi panel lengkung untuk visual dinamis.</p>
-                </div>
+            <div class="portfolio-item" onclick="openModal('Image 2026-09-23 at 11.25.44.jpeg')">
+                <img src="Image 2026-09-23 at 11.25.44.jpeg" alt="Auditorium Audio Visual">
+                <div class="portfolio-overlay"><h4>Tata Audio Auditorium</h4></div>
             </div>
-            <div class="portfolio-item">
-                <img src="foto-struktur-outdoor.jpeg" alt="Konstruksi LED Outdoor">
-                <div class="portfolio-overlay">
-                    <h4>Videotron Outdoor</h4>
-                    <p>Pengerjaan struktur kokoh untuk layar luar ruangan.</p>
-                </div>
+            <div class="portfolio-item" onclick="openModal('Image 2026-09-23 at 11.25.45 (1).jpeg')">
+                <img src="Image 2026-09-23 at 11.25.45 (1).jpeg" alt="Meeting Room Speakers">
+                <div class="portfolio-overlay"><h4>Instalasi AV Ruang Rapat</h4></div>
             </div>
-            <div class="portfolio-item">
-                <img src="foto-panel-belakang.jpeg" alt="Wiring Panel LED">
-                <div class="portfolio-overlay">
-                    <h4>Manajemen Kabel Presisi</h4>
-                    <p>Penyambungan kelistrikan dan data panel standar industri.</p>
-                </div>
+            <div class="portfolio-item" onclick="openModal('Image 2026-09-23 at 11.25.45.jpeg')">
+                <img src="Image 2026-09-23 at 11.25.45.jpeg" alt="Big LED Auditorium">
+                <div class="portfolio-overlay"><h4>Layar Utama Auditorium</h4></div>
             </div>
-            <div class="portfolio-item">
-                <img src="foto-logo-lti.jpeg" alt="LTI Display Test">
-                <div class="portfolio-overlay">
-                    <h4>Kalibrasi Layar</h4>
-                    <p>Pengujian akurasi warna dan operasional sistem penuh.</p>
-                </div>
+            <div class="portfolio-item" onclick="openModal('Image 2026-09-21 at 16.03.37.jpeg')">
+                <img src="Image 2026-09-21 at 16.03.37.jpeg" alt="LTI Screen Finishing">
+                <div class="portfolio-overlay"><h4>Finishing Layar Besar</h4></div>
+            </div>
+        </div>
+
+        <!-- Kategori 2: Proses Instalasi & Konstruksi -->
+        <h3 class="gallery-category">Konstruksi, Struktur & Kelistrikan</h3>
+        <div class="portfolio-grid">
+            <div class="portfolio-item" onclick="openModal('Image 2026-09-21 at 16.03.31 (1).jpeg')">
+                <img src="Image 2026-09-21 at 16.03.31 (1).jpeg" alt="Wall LED Install">
+                <div class="portfolio-overlay"><h4>Pemasangan Panel Dinding</h4></div>
+            </div>
+            <div class="portfolio-item" onclick="openModal('Image 2026-09-21 at 16.03.31.jpeg')">
+                <img src="Image 2026-09-21 at 16.03.31.jpeg" alt="Top Frame Wiring">
+                <div class="portfolio-overlay"><h4>Manajemen Kabel Atas</h4></div>
+            </div>
+            <div class="portfolio-item" onclick="openModal('Image 2026-09-21 at 16.03.36 (2).jpeg')">
+                <img src="Image 2026-09-21 at 16.03.36 (2).jpeg" alt="LED Back Panel Wiring">
+                <div class="portfolio-overlay"><h4>Instalasi Panel Belakang</h4></div>
+            </div>
+            <div class="portfolio-item" onclick="openModal('Image 2026-09-21 at 16.03.36 (1).jpeg')">
+                <img src="Image 2026-09-21 at 16.03.36 (1).jpeg" alt="Outdoor Scaffolding">
+                <div class="portfolio-overlay"><h4>Kerangka Baja Outdoor</h4></div>
+            </div>
+            <div class="portfolio-item" onclick="openModal('Image 2026-09-21 at 16.03.35.jpeg')">
+                <img src="Image 2026-09-21 at 16.03.35.jpeg" alt="Outdoor Big Structure">
+                <div class="portfolio-overlay"><h4>Struktur Gedung Bertingkat</h4></div>
+            </div>
+            <div class="portfolio-item" onclick="openModal('Image 2026-09-21 at 16.03.36.jpeg')">
+                <img src="Image 2026-09-21 at 16.03.36.jpeg" alt="Night Construction">
+                <div class="portfolio-overlay"><h4>Pengerjaan Struktur Malam</h4></div>
+            </div>
+        </div>
+
+        <!-- Kategori 3: Pengujian & Layar Khusus -->
+        <h3 class="gallery-category">Pengujian Sistem & Modul Melengkung (Curved)</h3>
+        <div class="portfolio-grid">
+            <div class="portfolio-item" onclick="openModal('Image 2026-09-21 at 16.01.23.jpeg')">
+                <img src="Image 2026-09-21 at 16.01.23.jpeg" alt="Curved LED Landscape">
+                <div class="portfolio-overlay"><h4>Uji Coba LED Melengkung</h4></div>
+            </div>
+            <div class="portfolio-item" onclick="openModal('Image 2026-09-21 at 16.01.24 (1).jpeg')">
+                <img src="Image 2026-09-21 at 16.01.24 (1).jpeg" alt="Curved LED Blue Graphics">
+                <div class="portfolio-overlay"><h4>Kalibrasi Warna (Curved)</h4></div>
+            </div>
+            <div class="portfolio-item" onclick="openModal('Image 2026-09-21 at 16.01.24.jpeg')">
+                <img src="Image 2026-09-21 at 16.01.24.jpeg" alt="Curved LED Internal">
+                <div class="portfolio-overlay"><h4>Perakitan Komponen Internal</h4></div>
+            </div>
+            <div class="portfolio-item" onclick="openModal('Image 2026-09-21 at 16.01.22 (1).jpeg')">
+                <img src="Image 2026-09-21 at 16.01.22 (1).jpeg" alt="Wall LED Test Red">
+                <div class="portfolio-overlay"><h4>Pengujian Piksel (Test Pattern)</h4></div>
+            </div>
+            <div class="portfolio-item" onclick="openModal('Image 2026-09-21 at 16.01.24 (2).jpeg')">
+                <img src="Image 2026-09-21 at 16.01.24 (2).jpeg" alt="Wall LED Test Red Wide">
+                <div class="portfolio-overlay"><h4>Inspeksi Modul Dinding</h4></div>
+            </div>
+            <div class="portfolio-item" onclick="openModal('Image 2026-09-21 at 16.01.22.jpeg')">
+                <img src="Image 2026-09-21 at 16.01.22.jpeg" alt="Wall LED Dark">
+                <div class="portfolio-overlay"><h4>Cek Presisi Pemasangan (Off)</h4></div>
             </div>
         </div>
     </section>
+
+    <!-- LIGHTBOX MODAL (Untuk Zoom Gambar) -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="expandedImg">
+    </div>
 
     <!-- KONTAK -->
-    <section id="kontak">
+    <section id="kontak" class="contact-section">
         <h2 class="section-title">Hubungi Kami</h2>
         <div class="contact-container">
             <div class="contact-info">
                 <h3>Lestari Technology Indonesia</h3>
-                <p>Konsultasikan kebutuhan audio visual, videotron, dan infrastruktur IT perusahaan Anda bersama tim ahli kami.</p>
+                <p>Konsultasikan kebutuhan instalasi videotron, audio visual, dan infrastruktur proyek Anda bersama tim ahli kami.</p>
                 
                 <ul class="contact-list">
-                    <li>
-                        ✉️ <a href="mailto:lestaritechnologyindonesia@gmail.com">lestaritechnologyindonesia@gmail.com</a>
-                    </li>
-                    <li>
-                        📞 0895-6273-06030
-                    </li>
+                    <li>✉️ <a href="mailto:lestaritechnologyindonesia@gmail.com">lestaritechnologyindonesia@gmail.com</a></li>
+                    <li>📞 0895-6273-06030</li>
                 </ul>
                 
                 <a href="https://wa.me/62895627306030" target="_blank" class="btn-whatsapp">
-                    💬 Chat via WhatsApp
+                    Mulai Obrolan WhatsApp
                 </a>
             </div>
-            <div class="contact-form">
-                <!-- Anda bisa menambahkan tag <img> logo besar LTI disini atau peta lokasi nantinya -->
-                <h3 style="color: var(--primary-color); margin-bottom: 15px;">Keunggulan LTI</h3>
-                <p style="margin-bottom: 10px;">✔️ Dikerjakan oleh teknisi bersertifikat dan berpengalaman</p>
-                <p style="margin-bottom: 10px;">✔️ Kualitas komponen panel dan audio standar internasional</p>
-                <p style="margin-bottom: 10px;">✔️ Pengerjaan rapi meliputi estetika interior dan keamanan struktur</p>
-                <p style="margin-bottom: 10px;">✔️ Dukungan after-sales dan perawatan sistem</p>
+            <div class="contact-features">
+                <h3 style="color: var(--primary-color); margin-bottom: 25px; font-size: 1.8rem;">Keunggulan LTI</h3>
+                <div class="feature-item">
+                    <span>✓</span>
+                    <div>
+                        <strong>Teknisi Berpengalaman</strong>
+                        <p style="color: #666; font-size: 0.95rem;">Dikerjakan langsung oleh ahli kelistrikan dan struktur bersertifikat.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span>✓</span>
+                    <div>
+                        <strong>Komponen Presisi Internasional</strong>
+                        <p style="color: #666; font-size: 0.95rem;">Menggunakan panel LED dan sistem tata suara standar terbaik.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span>✓</span>
+                    <div>
+                        <strong>Manajemen Kabel Ekstra Rapi</strong>
+                        <p style="color: #666; font-size: 0.95rem;">Instalasi dijamin rapi, estetis, dan aman dari korsleting.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span>✓</span>
+                    <div>
+                        <strong>Layanan After-Sales</strong>
+                        <p style="color: #666; font-size: 0.95rem;">Dukungan kalibrasi sistem dan pemeliharaan jangka panjang.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -443,5 +606,31 @@
         <p>&copy; 2026 Lestari Technology Indonesia (LTI). Hak Cipta Dilindungi.</p>
     </footer>
 
+    <!-- SCRIPT UNTUK LIGHTBOX MODAL -->
+    <script>
+        function openModal(imageSrc) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("expandedImg");
+            
+            // Encode URI komponen untuk mengatasi spasi atau karakter unik jika dihosting (seperti di Github)
+            modalImg.src = encodeURI(imageSrc); 
+            modal.classList.add("show");
+            document.body.style.overflow = "hidden"; // Disable scroll saat modal terbuka
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("imageModal");
+            modal.classList.remove("show");
+            document.body.style.overflow = "auto"; // Enable scroll kembali
+        }
+
+        // Tutup modal jika user mengklik area hitam di luar gambar
+        window.onclick = function(event) {
+            const modal = document.getElementById("imageModal");
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
 </body>
 </html>
