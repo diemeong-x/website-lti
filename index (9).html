@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- === SEO === -->
+    <title>LTI | Situs Sedang Dalam Pemeliharaan</title>
+    <meta name="description" content="Lestari Technology Indonesia (LTI) sedang melakukan pemeliharaan sistem. Kami akan segera kembali dengan layanan yang lebih baik.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="author" content="Lestari Technology Indonesia">
+
+    <!-- === OPEN GRAPH === -->
+    <meta property="og:title" content="LTI | Situs Sedang Dalam Pemeliharaan">
+    <meta property="og:description" content="Kami sedang melakukan peningkatan sistem. Hubungi tim kami untuk kebutuhan mendesak.">
+    <meta property="og:image" content="Logo LTI.svg">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #0A2540;
+            --primary-light: #123A5E;
+            --secondary: #00B4D8;
+            --secondary-soft: #7CE0FF;
+            --accent: #25D366;
+            --warning: #FFC107;
+            --text: #E6EDF5;
+            --muted: #93A5B8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at 20% 0%, #123A5E 0%, #0A2540 45%, #061626 100%);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 110px 20px 80px;
+            position: relative;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* === GRID HALUS === */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+            background-size: 60px 60px;
+            -webkit-mask-image: radial-gradient(circle at 50% 40%, #000 0%, transparent 72%);
+            mask-image: radial-gradient(circle at 50% 40%, #000 0%, transparent 72%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* === GLOW DEKORATIF === */
+        .glow {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: .3;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .glow.a { width: 520px; height: 520px; background: #00B4D8; top: -180px; left: -160px; animation: float 15s ease-in-out infinite; }
+        .glow.b { width: 460px; height: 460px; background: #1E6FD9; bottom: -200px; right: -140px; animation: float 19s ease-in-out infinite reverse; }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50%      { transform: translate(45px, 35px); }
+        }
+
+        /* === SAFETY LINE ATAS === */
+        .safety-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 38px;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: repeating-linear-gradient(
+                45deg,
+                var(--warning) 0 16px,
+                #0A1A2A 16px 32px
+            );
+            animation: hazardSlide 2.6s linear infinite;
+            box-shadow: 0 4px 22px rgba(255, 193, 7, .22);
+        }
+
+        .safety-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #0A1A2A;
+            color: var(--warning);
+            border: 1px solid rgba(255, 193, 7, .55);
+            padding: 5px 18px;
+            border-radius: 999px;
+            font-size: .74rem;
+            font-weight: 800;
+            letter-spacing: 1.3px;
+            text-transform: uppercase;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, .35);
+            white-space: nowrap;
+        }
+
+        .safety-label i { font-size: .85rem; }
+
+        /* === SAFETY LINE BAWAH === */
+        .safety-bottom {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 14px;
+            z-index: 50;
+            background: repeating-linear-gradient(
+                45deg,
+                var(--warning) 0 20px,
+                #0A1A2A 20px 40px
+            );
+            animation: hazardSlide 2.6s linear infinite;
+            box-shadow: 0 -4px 22px rgba(255, 193, 7, .18);
+        }
+
+        @keyframes hazardSlide {
+            from { background-position: 0 0; }
+            to   { background-position: 56.57px 0; }
+        }
+
+        /* === KARTU UTAMA === */
+        .card {
+            position: relative;
+            z-index: 5;
+            width: 100%;
+            max-width: 720px;
+            text-align: center;
+            padding: 52px 46px 44px;
+            border-radius: 24px;
+            background: linear-gradient(160deg, rgba(255,255,255,.075), rgba(255,255,255,.02));
+            border: 1px solid rgba(255, 255, 255, .12);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255,255,255,.08);
+            animation: cardIn .7s cubic-bezier(.2, .8, .3, 1) both;
+        }
+
+        @keyframes cardIn {
+            from { opacity: 0; transform: translateY(26px) scale(.985); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .logo {
+            height: 62px;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            margin-bottom: 26px;
+            filter: drop-shadow(0 6px 18px rgba(0, 180, 216, .25));
+        }
+
+        .logo-fallback {
+            display: none;
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--secondary);
+            margin-bottom: 26px;
+        }
+
+        /* === STATUS === */
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            font-size: .78rem;
+            font-weight: 700;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            color: var(--warning);
+            background: rgba(255, 193, 7, .1);
+            border: 1px solid rgba(255, 193, 7, .35);
+            padding: 8px 18px;
+            border-radius: 999px;
+            margin-bottom: 30px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--warning);
+            box-shadow: 0 0 0 0 rgba(255, 193, 7, .7);
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+            0%   { box-shadow: 0 0 0 0 rgba(255, 193, 7, .65); }
+            70%  { box-shadow: 0 0 0 11px rgba(255, 193, 7, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); }
+        }
+
+        /* === IKON === */
+        .icon-ring {
+            position: relative;
+            width: 108px;
+            height: 108px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 25%, rgba(0, 180, 216, .28), rgba(0, 180, 216, .05));
+            border: 1px solid rgba(0, 180, 216, .35);
+        }
+
+        .icon-ring::before {
+            content: '';
+            position: absolute;
+            inset: -13px;
+            border-radius: 50%;
+            border: 2px dashed rgba(0, 180, 216, .45);
+            animation: spin 16s linear infinite;
+        }
+
+        .icon-ring i {
+            font-size: 44px;
+            color: var(--secondary);
+            filter: drop-shadow(0 0 14px rgba(0, 180, 216, .55));
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* === TIPOGRAFI === */
+        h1 {
+            font-size: clamp(1.55rem, 4.4vw, 2.3rem);
+            font-weight: 800;
+            line-height: 1.25;
+            letter-spacing: -.4px;
+            margin-bottom: 18px;
+            background: linear-gradient(120deg, #FFFFFF 20%, var(--secondary-soft) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .desc {
+            font-size: 1rem;
+            line-height: 1.75;
+            color: #C3D2E2;
+            max-width: 540px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        /* === PROGRESS === */
+        .progress {
+            height: 6px;
+            width: 100%;
+            max-width: 380px;
+            margin: 32px auto 14px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .09);
+            overflow: hidden;
+        }
+
+        .progress .bar {
+            height: 100%;
+            width: 42%;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--secondary), var(--secondary-soft));
+            box-shadow: 0 0 16px rgba(0, 180, 216, .75);
+            animation: indeterminate 2.4s cubic-bezier(.65, 0, .35, 1) infinite;
+        }
+
+        @keyframes indeterminate {
+            0%   { transform: translateX(-105%); }
+            100% { transform: translateX(345%); }
+        }
+
+        .eta {
+            font-size: .84rem;
+            color: var(--muted);
+            font-weight: 500;
+            letter-spacing: .2px;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .16), transparent);
+            margin: 34px 0 28px;
+        }
+
+        .note {
+            font-size: .9rem;
+            color: var(--muted);
+            line-height: 1.65;
+            max-width: 500px;
+            margin: 0 auto 24px;
+        }
+
+        /* === TOMBOL === */
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 26px;
+            border-radius: 12px;
+            font-size: .95rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: .28s ease;
+            border: 1px solid transparent;
+            white-space: nowrap;
+        }
+
+        .btn i { font-size: 1.05rem; }
+
+        .btn-wa {
+            background: var(--accent);
+            color: #04240F;
+            box-shadow: 0 8px 24px rgba(37, 211, 102, .28);
+        }
+
+        .btn-wa:hover {
+            background: #1EBE57;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(37, 211, 102, .42);
+        }
+
+        .btn-ghost {
+            background: rgba(255, 255, 255, .06);
+            border-color: rgba(255, 255, 255, .18);
+            color: var(--text);
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, .13);
+            border-color: var(--secondary);
+            color: var(--secondary-soft);
+            transform: translateY(-3px);
+        }
+
+        /* === FOOTER === */
+        footer {
+            position: relative;
+            z-index: 5;
+            margin-top: 34px;
+            text-align: center;
+            font-size: .8rem;
+            color: #6E8299;
+            line-height: 1.7;
+            padding: 0 10px;
+        }
+
+        footer strong { color: #9FB3C8; font-weight: 600; }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 600px) {
+            body { padding: 100px 16px 70px; }
+            .card { padding: 40px 24px 34px; border-radius: 20px; }
+            .logo { height: 48px; }
+            .icon-ring { width: 90px; height: 90px; margin-bottom: 26px; }
+            .icon-ring i { font-size: 36px; }
+            .actions { flex-direction: column; }
+            .btn { width: 100%; }
+            .safety-label { font-size: .66rem; padding: 4px 12px; letter-spacing: 1px; }
+            .safety-top { height: 34px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: .001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .001ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SAFETY LINE ATAS -->
+    <div class="safety-top" role="status" aria-label="Situs sedang dalam pemeliharaan">
+        <span class="safety-label">
+            <i class="fas fa-triangle-exclamation" aria-hidden="true"></i>
+            Sedang Dalam Pemeliharaan
+        </span>
+    </div>
+
+    <!-- SAFETY LINE BAWAH -->
+    <div class="safety-bottom" aria-hidden="true"></div>
+
+    <!-- GLOW -->
+    <div class="glow a" aria-hidden="true"></div>
+    <div class="glow b" aria-hidden="true"></div>
+
+    <!-- KARTU UTAMA -->
+    <main class="card">
+        <img src="Logo LTI.svg" alt="Lestari Technology Indonesia" class="logo"
+             onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='block';">
+        <div id="logoFallback" class="logo-fallback">LESTARI TECHNOLOGY INDONESIA</div>
+
+        <div class="status-pill" role="status" aria-live="polite">
+            <span class="dot"></span>
+            Pemeliharaan Terjadwal
+        </div>
+
+        <div class="icon-ring">
+            <i class="fas fa-screwdriver-wrench" aria-hidden="true"></i>
+        </div>
+
+        <h1>Situs Sedang Dalam Pemeliharaan</h1>
+
+        <p class="desc">
+            Kami sedang melakukan peningkatan sistem dan pemeliharaan berkala
+            demi keamanan serta kualitas layanan yang lebih baik.
+            Kami akan segera kembali.
+        </p>
+
+        <div class="progress" role="progressbar" aria-label="Progres pemeliharaan">
+            <div class="bar"></div>
+        </div>
+
+        <p class="eta">Tim teknis kami sedang bekerja — estimasi selesai secepatnya.</p>
+
+        <div class="divider"></div>
+
+        <p class="note">
+            Untuk kebutuhan mendesak terkait proyek Videotron, Audio Visual,
+            dan infrastruktur, silakan hubungi tim kami langsung:
+        </p>
+
+        <div class="actions">
+            <a href="https://wa.me/628xxxxxxxxxx" target="_blank" rel="noopener" class="btn btn-wa">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="mailto:xxxxxxxxxx@gmail.com" class="btn btn-ghost">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+            <a href="tel:+628xxxxxxxxxx" class="btn btn-ghost">
+                <i class="fas fa-phone-alt"></i> Telepon
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p><strong>Lestari Technology Indonesia (LTI)</strong></p>
+        <p>&copy; 2026 Lestari Technology Indonesia (LTI). Seluruh hak cipta dilindungi.</p>
+    </footer>
+
+</body>
+</html>
